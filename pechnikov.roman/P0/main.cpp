@@ -2,5 +2,5 @@
 
 int main()
 {
-  std::cout << "pechnikov.roman";
+  std::cout << "pechnikov.roman\n";
 }
