@@ -4,12 +4,11 @@ namespace pechnikov
 {
   void countMaxLenghtMonDec()
   {
-    const int MinLenght = 3;
     int countMax = 1, countMonDec = 1;
     int PrevNum, CurrentNum;
     std::cin >> PrevNum;
     std::cin >> CurrentNum;
-    while (CurrentNum!=0)
+    while (CurrentNum != 0)
     {
       if (PrevNum >= CurrentNum)
       {
@@ -28,12 +27,13 @@ namespace pechnikov
     }
     if (countMax < countMonDec)
     {
-      countMax = countMonDec
+      countMax = countMonDec;
     }
-    std::count << countMonDec;
+    std::cout << countMax;
   }
 }
 int main()
 {
   pechnikov::countMaxLenghtMonDec();
+  std::cout << "\n";
 }
