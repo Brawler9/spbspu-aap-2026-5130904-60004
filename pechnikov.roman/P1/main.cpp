@@ -6,8 +6,18 @@ namespace pechnikov
   {
     int countMax = 1, countMonDec = 1;
     int PrevNum, CurrentNum;
-    std::cin >> PrevNum;
-    std::cin >> CurrentNum;
+    if (!(std::cin >> PrevNum))
+    {
+      throw std::invalid_argument("Invalid num");
+    }
+    if (PrevNum == 0)
+    {
+      throw std::runtime_error("Seq is too short");
+    }
+    if (!(std::cin >> CurrentNum))
+    {
+      throw std::invalid_argument("Invalid num");
+    }
     while (CurrentNum != 0)
     {
       if (PrevNum >= CurrentNum)
@@ -23,7 +33,10 @@ namespace pechnikov
 	countMonDec = 1;
       }
       PrevNum = CurrentNum;
-      std::cin >> CurrentNum;
+      if (!(std::cin >> CurrentNum))
+      {
+        throw std::invalid_argument("Invalid num");
+      }
     }
     if (countMax < countMonDec)
     {
@@ -34,6 +47,19 @@ namespace pechnikov
 }
 int main()
 {
-  pechnikov::countMaxLenghtMonDec();
+  try
+  {
+    pechnikov::countMaxLenghtMonDec();
+  }
+  catch (const std::invalid_argument& err)
+  {
+    std::cout << err.what();
+    return 1;
+  }
+  catch (const std::runtime_error& err)
+  {
+    std::cout << err.what();
+    return 2;
+  }
   std::cout << "\n";
 }
