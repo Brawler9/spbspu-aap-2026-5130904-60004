@@ -6,7 +6,7 @@ namespace pechnikov
   void countMaxLenghtMonDec()
   {
     int count_max = 1, count_mon_dec = 1;
-    int prev_num, current_num;
+    int prev_num = 0, current_num = 0;
     if (!(std::cin >> prev_num))
     {
       throw std::invalid_argument("Invalid num");
