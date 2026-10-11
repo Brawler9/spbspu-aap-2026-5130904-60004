@@ -62,4 +62,5 @@ int main()
     return 2;
   }
   std::cout << "\n";
+  return 0;
 }
