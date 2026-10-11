@@ -1,48 +1,49 @@
 #include <iostream>
+#include <stdexcept>
 
 namespace pechnikov
 {
   void countMaxLenghtMonDec()
   {
-    int countMax = 1, countMonDec = 1;
-    int PrevNum,CurrentNum;
-    if (!(std::cin >> PrevNum))
-    {
-      throw std::invalid_argument("InvalidNum");
-    }
-    if (PrevNum == 0)
-    {
-      throw std::runtime_error("Seq is too short");
-    }
-    if (!(std::cin >> CurrentNum))
+    int count_max = 1, count_mon_dec = 1;
+    int prev_num, current_num;
+    if (!(std::cin >> prev_num))
     {
       throw std::invalid_argument("Invalid num");
     }
-    while (CurrentNum != 0)
+    if (prev_num == 0)
     {
-      if (PrevNum >= CurrentNum)
+      throw std::runtime_error("Seq is too short");
+    }
+    if (!(std::cin >> current_num))
+    {
+      throw std::invalid_argument("Invalid num");
+    }
+    while (current_num != 0)
+    {
+      if (prev_num >= current_num)
       {
-        countMonDec += 1;
+        count_mon_dec += 1;
       }
       else
       {
-        if (countMax < countMonDec)
+        if (count_max < count_mon_dec)
         {
-          countMax = countMonDec;
+          count_max = count_mon_dec;
         }
-        countMonDec = 1;
+        count_mon_dec = 1;
       }
-      PrevNum = CurrentNum;
-      if (!(std::cin >> CurrentNum))
+      prev_num = current_num;
+      if (!(std::cin >> current_num))
       {
         throw std::invalid_argument("Invalid num");
       }
     }
-    if (countMax < countMonDec)
+    if (count_max < count_mon_dec)
     {
-      countMax = countMonDec;
+      count_max = count_mon_dec;
     }
-    std::cout << countMax;
+    std::cout << count_max;
   }
 }
 int main()
