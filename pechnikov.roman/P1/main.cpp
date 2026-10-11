@@ -23,10 +23,10 @@ namespace pechnikov
     }
     if (flag)
     {
-     if (!(std::cin >> current_num))
-     {
-       throw std::invalid_argument("Invalid num");
-     }
+      if (!(std::cin >> current_num))
+      {
+        throw std::invalid_argument("Invalid num");
+      }
     }
     while (current_num != 0)
     {
