@@ -1,3 +1,5 @@
+#include <iostream>
+
 namespace pechnikov
 {
   void countMaxLenghtMonDec()
@@ -34,4 +36,3 @@ int main()
 {
   pechnikov::countMaxLenghtMonDec();
 }
-~
