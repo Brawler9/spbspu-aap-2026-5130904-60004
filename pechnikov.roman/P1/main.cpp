@@ -69,7 +69,7 @@ int main()
   }
   catch (const std::runtime_error& err)
   {
-  std::cout << err.what();
-  std::cout << "\n";
+    std::cout << err.what();
+    std::cout << "\n";
   }
 }
