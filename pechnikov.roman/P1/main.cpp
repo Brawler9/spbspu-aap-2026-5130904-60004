@@ -71,4 +71,5 @@ int main()
   {
   std::cout << err.what();
   std::cout << "\n";
+  }
 }
