@@ -67,5 +67,8 @@ int main()
     std::cout << "\n";
     return 1;
   }
+  catch (const std::runtime_error& err)
+  {
+  std::cout << err.what();
   std::cout << "\n";
 }
