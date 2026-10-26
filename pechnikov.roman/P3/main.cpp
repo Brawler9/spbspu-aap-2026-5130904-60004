@@ -81,16 +81,12 @@ int main(int argc, char** argv)
     fileo.close();
     return 0;
   }
-  catch (const std::invalid_argument &err)
+  catch (const std::invalid_argument& err)
   {
-    if (argv[1][0] == '2')
-    {
-      delete[] data;
-    }
     std::cerr << err.what() << "\n";
     return 1;
   }
-  catch (const std::exception &err)
+  catch (const std::exception& err)
   {
     if (argv[1][0] == '2')
     {
@@ -105,7 +101,7 @@ int pechnikov::count(const int* data, int row, int column)
 {
   int* minrow = new int[row];
   int* maxcolumn = new int[column];
-  int** arr = new int* [row];
+  int** arr = new int*[row];
   for (int i = 0; i < row; i++)
   {
     arr[i] = new int[column];
