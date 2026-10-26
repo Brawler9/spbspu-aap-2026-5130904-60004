@@ -53,8 +53,8 @@ int main(int argc, char** argv)
       for (int j = 0; j < column; j++)
       {
         if (!(file >> data[i * column + j]))
-	{
-	  throw std::logic_error("Invalid element");
+        {
+          throw std::logic_error("Invalid element");
         }
       }
     }
@@ -143,7 +143,7 @@ int pechnikov::count(int* data, int row, int column)
         maxcolumn[i] = arr[j][i];
       }
     }
-  }	
+  }
   int k = 0;
   for (int i = 0; i < row; i++)
   {
