@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <stdexcept>
+#include <exception>
 
 namespace pechnikov
 {
@@ -10,6 +11,7 @@ namespace pechnikov
 int main(int argc, char** argv)
 {
   int* data = nullptr;
+  const int maxSize = 10000;
   try
   {
     if (argc != 4)
@@ -35,11 +37,11 @@ int main(int argc, char** argv)
     {
       throw std::logic_error("Length error");
     }
-    if (row * column > 10000)
+    if (row * column > maxSize)
     {
       throw std::logic_error("Matrix is too large");
     }
-    int stackdata[10000] = {};
+    int stackdata[maxSize] = {};
     if (argv[1][0] == '1')
     {
       data = stackdata;
@@ -65,7 +67,7 @@ int main(int argc, char** argv)
     }
     file.close();
 
-    int result = pechnikov::count(data, row, column);
+    const int result = pechnikov::count(data, row, column);
     if (argv[1][0] == '2')
     {
       delete[] data;
@@ -99,7 +101,7 @@ int main(int argc, char** argv)
   }
 }
 
-int pechnikov::count(int* data, int row, int column)
+int pechnikov::count(int* const data, int row, int column)
 {
   int* minrow = new int[row];
   int* maxcolumn = new int[column];
