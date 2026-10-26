@@ -55,7 +55,7 @@ int main(int argc, char** argv)
         if (!(file >> data[i * column + j]))
 	{
 	  throw std::logic_error("Invalid element");
-	}
+        }
       }
     }
     file >> std::ws;
