@@ -5,7 +5,7 @@
 
 namespace pechnikov
 {
-  int count(int* data, int row, int column);
+  int count(const int* data, int row, int column);
 }
 
 int main(int argc, char** argv)
