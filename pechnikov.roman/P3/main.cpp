@@ -4,7 +4,7 @@
 
 namespace pechnikov
 {
-	int count(int* data, int row, int column);
+  int count(int* data, int row, int column);
 }
 
 int main(int argc, char** argv)
@@ -101,7 +101,6 @@ int main(int argc, char** argv)
   }
 }
 
-
 int pechnikov::count(int* data, int row, int column)
 {
   int* minrow = new int[row];
@@ -154,7 +153,6 @@ int pechnikov::count(int* data, int row, int column)
       }
     }
   }
-
   for (int i = 0; i < row; ++i)
   {
     delete[] arr[i];
@@ -165,7 +163,5 @@ int pechnikov::count(int* data, int row, int column)
   minrow = nullptr;
   delete[] maxcolumn;
   maxcolumn = nullptr;	
-
   return k;
-
 }
