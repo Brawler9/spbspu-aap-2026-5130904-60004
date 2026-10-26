@@ -16,11 +16,11 @@ int main(int argc, char** argv)
   {
     if (argc != 4)
     {
-      throw std::runtime_error("Not 3 argument");
+      throw std::invalid_argument("Not 3 argument");
     }
     if ((argv[1][0] != '1' && argv[1][0] != '2') || argv[1][1] != '\0')
     {
-      throw std::runtime_error("First argument out of range");
+      throw std::invalid_argument("First argument out of range");
     }
     int row = 0, column = 0;
 
@@ -31,15 +31,15 @@ int main(int argc, char** argv)
     }
     if (!(file >> row >> column))
     {
-      throw std::logic_error("can't read size");
+      throw std::runtime_error("can't read size");
     }
     if ((row <= 0 || column <= 0) && !(row == 0 && column == 0))
     {
-      throw std::logic_error("Length error");
+      throw std::runtime_error("Length error");
     }
     if (row * column > maxSize)
     {
-      throw std::logic_error("Matrix is too large");
+      throw std::runtime_error("Matrix is too large");
     }
     int stackdata[maxSize] = {};
     if (argv[1][0] == '1')
@@ -56,14 +56,14 @@ int main(int argc, char** argv)
       {
         if (!(file >> data[i * column + j]))
         {
-          throw std::logic_error("Invalid element");
+          throw std::runtime_error("Invalid element");
         }
       }
     }
     file >> std::ws;
     if (!file.eof())
     {
-      throw std::logic_error("Extra nums");
+      throw std::runtime_error("Extra nums");
     }
     file.close();
 
@@ -81,7 +81,7 @@ int main(int argc, char** argv)
     fileo.close();
     return 0;
   }
-  catch (const std::runtime_error &err)
+  catch (const std::invalid_argument &err)
   {
     if (argv[1][0] == '2')
     {
@@ -90,7 +90,7 @@ int main(int argc, char** argv)
     std::cerr << err.what() << "\n";
     return 1;
   }
-  catch (const std::logic_error &err)
+  catch (const std::exception &err)
   {
     if (argv[1][0] == '2')
     {
@@ -101,7 +101,7 @@ int main(int argc, char** argv)
   }
 }
 
-int pechnikov::count(int* const data, int row, int column)
+int pechnikov::count(const int* data, int row, int column)
 {
   int* minrow = new int[row];
   int* maxcolumn = new int[column];
