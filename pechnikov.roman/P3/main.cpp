@@ -10,9 +10,8 @@ namespace pechnikov
 int main(int argc, char** argv)
 {
   int* data = nullptr;
-  try 
+  try
   {
-
     if (argc != 4)
     {
       throw std::runtime_error("Not 3 argument");
@@ -80,13 +79,12 @@ int main(int argc, char** argv)
     fileo.close();
     return 0;
   }
-  catch (const std::runtime_error &err) 
+  catch (const std::runtime_error &err)
   {
     if (argv[1][0] == '2')
     {
       delete[] data;
     }
-
     std::cerr << err.what() << "\n";
     return 1;
   }
@@ -117,7 +115,6 @@ int pechnikov::count(int* data, int row, int column)
       arr[i][j] = data[i * column + j];
     }
   }
-
   for (int i = 0; i < row; i++)
   {
     minrow[i] = arr[i][0];
@@ -131,17 +128,22 @@ int pechnikov::count(int* data, int row, int column)
   {
     for (int j = 0; j < column; j++)
     {
-      if (arr[i][j] < minrow[i]) minrow[i] = arr[i][j];
+      if (arr[i][j] < minrow[i])
+      {
+        minrow[i] = arr[i][j];
+      }
     }
   }
   for (int i = 0; i < column; i++)
   {
     for (int j = 0; j < row; j++)
     {
-      if (arr[j][i] > maxcolumn[i]) maxcolumn[i] = arr[j][i];
+      if (arr[j][i] > maxcolumn[i])
+      {
+        maxcolumn[i] = arr[j][i];
+      }
     }
-  }
-	
+  }	
   int k = 0;
   for (int i = 0; i < row; i++)
   {
@@ -162,6 +164,6 @@ int pechnikov::count(int* data, int row, int column)
   delete[] minrow;
   minrow = nullptr;
   delete[] maxcolumn;
-  maxcolumn = nullptr;	
+  maxcolumn = nullptr;
   return k;
 }
