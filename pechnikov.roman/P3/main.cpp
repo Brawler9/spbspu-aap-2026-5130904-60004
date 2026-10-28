@@ -37,13 +37,13 @@ int main(int argc, char** argv)
     {
       throw std::runtime_error("Length error");
     }
-    if (row * column > maxSize)
-    {
-      throw std::runtime_error("Matrix is too large");
-    }
     int stackdata[maxSize] = {};
     if (argv[1][0] == '1')
     {
+      if (row * column > maxSize)
+      {
+        throw std::runtime_error("Matrix is too large");
+      }
       data = stackdata;
     }
     if (argv[1][0] == '2')
