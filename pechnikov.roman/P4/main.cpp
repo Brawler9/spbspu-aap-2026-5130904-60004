@@ -5,7 +5,7 @@ namespace pechnikov
   void delspace(const char *, char *, int);
 }
 
-int main() 
+int main()
 {
   const int initial_max_size = 16;
   int max_size = initial_max_size;
@@ -13,7 +13,7 @@ int main()
   char *str = nullptr;
   char *nice_str = nullptr;
 
-  try 
+  try
   {
     str = new char[max_size + 1];
     while (true)
@@ -27,7 +27,7 @@ int main()
       {
         char *const new_str = new char[max_size * 2 + 1];
         for (int i = 0; i < length; i++)
-	{
+    {
           new_str[i] = str[i];
         }
         delete[] str;
