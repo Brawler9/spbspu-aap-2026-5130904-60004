@@ -27,7 +27,7 @@ int main()
       {
         char *const new_str = new char[max_size * 2 + 1];
         for (int i = 0; i < length; i++)
-    {
+        {
           new_str[i] = str[i];
         }
         delete[] str;
@@ -72,7 +72,7 @@ void pechnikov::delspace(const char *str, char *nice_str, int length)
     }
     else
     {
-      space_pod = 1;
+      space_pod = 0;
     }
     if (space_pod <= 1)
     {
