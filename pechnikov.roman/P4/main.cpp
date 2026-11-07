@@ -4,7 +4,8 @@ void delspace(const char*, char*, int);
 
 int main()
 {
-  int max_size = 16;
+  const int initial_max_size = 16;
+  int max_size = initial_max_size;
   int length = 0;
   char* str = nullptr;
   char* nice_str = nullptr;
@@ -14,14 +15,14 @@ int main()
     str = new char[max_size + 1];
     while (true)
     {
-      int ch = std::cin.get();
+      const int ch = std::cin.get();
       if (ch == EOF || ch == '\n')
       {
         break;
       }
       if (length >= max_size)
       {
-        char* new_str = new char[max_size * 2 + 1];
+        char* const new_str = new char[max_size * 2 + 1];
         for (int i = 0; i < length; i++)
         {
           new_str[i] = str[i];
