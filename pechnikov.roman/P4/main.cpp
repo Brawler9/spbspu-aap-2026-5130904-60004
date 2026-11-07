@@ -38,7 +38,11 @@ int main()
       ++length;
     }
     str[length] = '\0';
-
+    if (lenght == 0)
+    {
+      std::cerr << "String empty\n";
+      return 2;
+    }
     nice_str = new char[length + 1];
 
     pechnikov::delspace(str, nice_str, length);
