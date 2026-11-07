@@ -6,7 +6,7 @@ namespace pechnikov
 }
 
 int main() 
-  {
+{
   const int initial_max_size = 16;
   int max_size = initial_max_size;
   int length = 0;
