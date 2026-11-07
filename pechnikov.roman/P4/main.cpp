@@ -38,7 +38,7 @@ int main()
       ++length;
     }
     str[length] = '\0';
-    if (lenght == 0)
+    if (length == 0)
     {
       std::cerr << "String empty\n";
       return 2;
