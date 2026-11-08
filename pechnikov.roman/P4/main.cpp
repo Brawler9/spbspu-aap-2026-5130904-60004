@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdexcept>
 
 namespace pechnikov
 {
@@ -40,8 +41,7 @@ int main()
     str[length] = '\0';
     if (length == 0)
     {
-      std::cerr << "String empty\n";
-      return 2;
+      throw std::invalid_argument("Empty string");
     }
     nice_str = new char[length + 1];
 
@@ -58,9 +58,18 @@ int main()
   catch (const std::bad_alloc &)
   {
     delete[] nice_str;
+    nice_str = nullptr;
     delete[] str;
+    str = nullptr;
     std::cerr << "error memory";
     return 1;
+  }
+  catch (const std::invalid_argument& err)
+  {
+    std::cerr << err.what() << '\n';
+    delete[] str;
+    str = nullptr;
+    return 2;
   }
 }
 
