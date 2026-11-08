@@ -52,7 +52,6 @@ pechnikov::Count::Count()
   max_lenght_ = 0;
 }
 
-
 void pechnikov::Count::operator()(int next)
 {
   if (next == 0)
