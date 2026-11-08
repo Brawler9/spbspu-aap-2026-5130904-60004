@@ -5,7 +5,7 @@ namespace pechnikov
   class Count
   {
   private:
-    int lenght, current, max_lenght;
+    int lenght_, current_, max_lenght_;
   public:
     void operator()(int next);
     int operator()();
@@ -13,50 +13,10 @@ namespace pechnikov
   };
 }
 
-pechnikov::Count::Count()
-{
-  lenght = 0;
-  current = 0;
-  max_lenght = 0;
-}
-
-
-void pechnikov::Count::operator()(int next)
-{
-  if (next == 0)
-  {
-    if (lenght > max_lenght)
-    {
-      max_lenght = lenght;
-    }
-  }
-  else
-  {
-    if (next <= current)
-    {
-      lenght += 1;
-    }
-    else
-    {
-      if (lenght > max_lenght)
-      {
-        max_lenght = lenght;
-      }
-      lenght = 1;
-    }
-    current = next;
-  }
-}
-
-int pechnikov::Count::operator()()
-{
-  return max_lenght;
-}
-
 int main()
 {
   pechnikov::Count counter;
-  int value;
+  int value = 0;
   try
   {
 
@@ -83,6 +43,45 @@ int main()
     std::cerr << err.what() << "\n";
     return 2;
   }
-
   std::cout << counter();
+}
+
+pechnikov::Count::Count()
+{
+  lenght_ = 0;
+  current_ = 0;
+  max_lenght_ = 0;
+}
+
+
+void pechnikov::Count::operator()(int next)
+{
+  if (next == 0)
+  {
+    if (lenght_ > max_lenght_)
+    {
+      max_lenght_ = lenght_;
+    }
+  }
+  else
+  {
+    if (next <= current_)
+    {
+      lenght_ += 1;
+    }
+    else
+    {
+      if (lenght_ > max_lenght_)
+      {
+        max_lenght_ = lenght_;
+      }
+      lenght_ = 1;
+    }
+    current_ = next;
+  }
+}
+
+int pechnikov::Count::operator()()
+{
+  return max_lenght_;
 }
