@@ -1,76 +1,88 @@
 #include <iostream>
-#include <stdexcept>
 
 namespace pechnikov
 {
-  void countMaxLenghtMonDec()
+  class Count
   {
-    bool flag = true;
-    int count_max = 0, count_mon_dec = 0;
-    int prev_num = 0, current_num = 0;
-    if (!(std::cin >> prev_num))
+  private:
+    int lenght, current, max_lenght;
+  public:
+    void operator()(int next);
+    int operator()();
+    Count();
+  };
+}
+
+pechnikov::Count::Count()
+{
+  lenght = 0;
+  current = 0;
+  max_lenght = 0;
+}
+
+
+void pechnikov::Count::operator()(int next)
+{
+  if (next == 0)
+  {
+    if (lenght > max_lenght)
     {
-      throw std::invalid_argument("Invalid num");
+      max_lenght = lenght;
     }
-    if (prev_num == 0)
+  }
+  else
+  {
+    if (next <= current)
     {
-      flag = false;
-      current_num = 0;
+      lenght += 1;
     }
     else
     {
-      count_mon_dec += 1;
-    }
-    if (flag)
-    {
-      if (!(std::cin >> current_num))
+      if (lenght > max_lenght)
       {
-        throw std::invalid_argument("Invalid num");
+        max_lenght = lenght;
       }
+      lenght = 1;
     }
-    while (current_num != 0)
-    {
-      if (prev_num >= current_num)
-      {
-        count_mon_dec += 1;
-      }
-      else
-      {
-        if (count_max < count_mon_dec)
-        {
-          count_max = count_mon_dec;
-        }
-        count_mon_dec = 1;
-      }
-      prev_num = current_num;
-      if (!(std::cin >> current_num))
-      {
-        throw std::invalid_argument("Invalid num");
-      }
-    }
-    if (count_max < count_mon_dec)
-    {
-      count_max = count_mon_dec;
-    }
-    std::cout << count_max;
+    current = next;
   }
 }
+
+int pechnikov::Count::operator()()
+{
+  return max_lenght;
+}
+
 int main()
 {
+  pechnikov::Count counter;
+  int value;
   try
   {
-    pechnikov::countMaxLenghtMonDec();
+
+    while (true)
+    {
+      if (!(std::cin >> value))
+      {
+        throw std::invalid_argument("Invalid argument");
+      }
+      counter(value);
+      if (value == 0)
+      {
+        break;
+      }
+    }
   }
   catch (const std::invalid_argument& err)
   {
-    std::cout << err.what();
-    std::cout << "\n";
+    std::cerr << err.what() << "\n";
     return 1;
   }
-  catch (const std::runtime_error& err)
+  catch (const std::exception& err)
   {
-    std::cout << err.what();
-    std::cout << "\n";
+    std::cerr << err.what() << "\n";
     return 2;
   }
+
+  std::cout << counter();
 }
