@@ -64,7 +64,7 @@ int main()
     std::cerr << "error memory";
     return 1;
   }
-  catch (const std::invalid_argument& err)
+  catch (const std::invalid_argument &err)
   {
     std::cerr << err.what() << '\n';
     delete[] str;
