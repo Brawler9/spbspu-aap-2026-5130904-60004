@@ -7,8 +7,8 @@ namespace pechnikov
   private:
     int lenght_, current_, max_lenght_;
   public:
-    void operator()(int next) const;
-    int operator()();
+    void operator()(int next);
+    int operator()() const;
     Count();
   };
 }
@@ -53,7 +53,7 @@ pechnikov::Count::Count()
 }
 
 
-void pechnikov::Count::operator()(int next) const
+void pechnikov::Count::operator()(int next)
 {
   if (next == 0)
   {
@@ -80,7 +80,7 @@ void pechnikov::Count::operator()(int next) const
   }
 }
 
-int pechnikov::Count::operator()()
+int pechnikov::Count::operator()() const
 {
   return max_lenght_;
 }
