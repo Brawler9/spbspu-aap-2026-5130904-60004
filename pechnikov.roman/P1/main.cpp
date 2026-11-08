@@ -7,7 +7,7 @@ namespace pechnikov
   private:
     int lenght_, current_, max_lenght_;
   public:
-    void operator()(int next);
+    void operator()(int next) const;
     int operator()();
     Count();
   };
@@ -19,7 +19,6 @@ int main()
   int value = 0;
   try
   {
-
     while (true)
     {
       if (!(std::cin >> value))
@@ -54,7 +53,7 @@ pechnikov::Count::Count()
 }
 
 
-void pechnikov::Count::operator()(int next)
+void pechnikov::Count::operator()(int next) const
 {
   if (next == 0)
   {
