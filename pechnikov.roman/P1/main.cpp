@@ -1,5 +1,6 @@
 #include <iostream>
-
+#include <stdexcept>
+#include <exception>
 namespace pechnikov
 {
   class Count
