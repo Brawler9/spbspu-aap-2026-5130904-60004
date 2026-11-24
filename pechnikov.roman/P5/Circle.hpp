@@ -3,7 +3,6 @@
 
 #include "shape.hpp"
 
-
 namespace pechnikov
 {
   class Circle: public Shape
