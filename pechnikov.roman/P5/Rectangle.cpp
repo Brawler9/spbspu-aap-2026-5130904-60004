@@ -3,10 +3,10 @@
 
 namespace pechnikov
 {
-  Rectangle::Rectangle(double w, double h, point_t p)
-    : width_(w)
-    , height_(h)
-    , pos_(p)
+  Rectangle::Rectangle(double w, double h, point_t p):
+    width_(w),
+    height_(h),
+    pos_(p)
   {
     if (w <= 0.0 || h <= 0.0)
     {

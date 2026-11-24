@@ -3,7 +3,6 @@
 #include "Circle.hpp"
 #include "Diamond.hpp"
 
-
 namespace
 {
   const double HALF = 0.5;

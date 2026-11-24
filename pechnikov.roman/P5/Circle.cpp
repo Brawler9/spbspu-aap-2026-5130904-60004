@@ -9,9 +9,9 @@ namespace
 
 namespace pechnikov
 {
-  Circle::Circle(double r, point_t p)
-    : radius_(r)
-    , pos_(p)
+  Circle::Circle(double r, point_t p):
+    radius_(r),
+    pos_(p)
   {
     if (r <= 0.0)
     {

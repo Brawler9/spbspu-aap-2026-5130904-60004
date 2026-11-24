@@ -8,10 +8,10 @@ namespace
 
 namespace pechnikov
 {
-  Diamond::Diamond(double x, double y, point_t p)
-    : diag_x_(x)
-    , diag_y_(y)
-    , pos_(p)
+  Diamond::Diamond(double x, double y, point_t p):
+    diag_x_(x),
+    diag_y_(y),
+    pos_(p)
   {
     if (diag_x_ <= 0.0 || diag_y_ <= 0.0)
     {
