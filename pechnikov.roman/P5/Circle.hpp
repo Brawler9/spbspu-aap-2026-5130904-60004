@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CIRCLE_HPP
+#define CIRCLE_HPP
 
 #include "shape.hpp"
 
@@ -18,3 +19,5 @@ namespace pechnikov
     void scale(double k) override;
   };
 }
+
+#endif

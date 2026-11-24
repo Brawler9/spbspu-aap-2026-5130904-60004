@@ -1,4 +1,7 @@
-#pragma once
+#ifndef SHAPE_HPP
+#define SHAPE_HPP
+
+
 #include "base-types.hpp"
 
 namespace pechnikov
@@ -13,3 +16,5 @@ namespace pechnikov
     virtual ~Shape() = default;
   };
 }
+
+#endif

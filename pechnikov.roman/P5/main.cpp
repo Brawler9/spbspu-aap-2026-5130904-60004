@@ -37,8 +37,8 @@ namespace pechnikov
       if (top > ymax)    ymax = top;
     }
     std::cout << "Summary Area: " << SumArea << "\n";
-    std::cout << "all width = " << xmax - xmin
-    std::cout << ", all height = " << ymax - ymin
+    std::cout << "all width = " << xmax - xmin;
+    std::cout << ", all height = " << ymax - ymin;
     std::cout << ", all pos(" << (xmax + xmin) / 2 << ", " << (ymax + ymin) / 2 << ")\n";
   }
 

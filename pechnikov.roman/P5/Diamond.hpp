@@ -1,4 +1,7 @@
-#pragma once
+#ifndef DIAMOND_HPP
+#define DIAMOND_HPP
+
+
 #include "shape.hpp"
 
 namespace pechnikov
@@ -16,3 +19,5 @@ namespace pechnikov
     void scale(double k) override;
   };
 }
+
+#endif

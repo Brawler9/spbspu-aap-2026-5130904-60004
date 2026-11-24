@@ -1,4 +1,5 @@
-#pragma once
+#ifndef BASE_TYPES_HPP
+#define BASE_TYPES_HPP
 
 namespace pechnikov
 {
@@ -12,3 +13,4 @@ namespace pechnikov
     point_t pos;
   };
 }
+#endif
