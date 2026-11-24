@@ -95,7 +95,7 @@ int main()
     shapes[2] = new pechnikov::Circle{ 13.0, { 5.0, 6.0 } };
 
     pechnikov::printinf(shapes, n);
-    
+
     double cx = 0.0, cy = 0.0, k = 0.0;
     if (!(std::cin >> cx >> cy >> k))
     {
