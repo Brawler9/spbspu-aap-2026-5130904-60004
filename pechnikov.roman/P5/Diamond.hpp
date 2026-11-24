@@ -6,10 +6,13 @@
 
 namespace pechnikov
 {
-  class Diamond :public Shape
+  class Diamond : public Shape
   {
-    double diagX, diagY;
-    point_t pos;
+  private:
+    double diag_x_;
+    double diag_y_;
+    point_t pos_;
+
   public:
     Diamond(double x, double y, point_t p);
     double getArea() const override;

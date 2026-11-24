@@ -6,10 +6,12 @@
 
 namespace pechnikov
 {
-  class Circle :public Shape
+  class Circle : public Shape
   {
-    double radius;
-    point_t pos;
+  private:
+    double radius_;
+    point_t pos_;
+
   public:
     Circle(double r, point_t p);
     double getArea() const override;

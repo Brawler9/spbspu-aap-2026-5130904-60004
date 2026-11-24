@@ -5,11 +5,13 @@
 
 namespace pechnikov
 {
-  class Rectangle :public Shape
+  class Rectangle : public Shape
   {
   private:
-    double width, height;
-    point_t pos;
+    double width_;
+    double height_;
+    point_t pos_;
+
   public:
     Rectangle(double w, double h, point_t p);
     double getArea() const override;

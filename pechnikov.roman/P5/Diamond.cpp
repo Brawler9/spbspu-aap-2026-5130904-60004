@@ -1,38 +1,51 @@
 #include "Diamond.hpp"
 #include <stdexcept>
-pechnikov::Diamond::Diamond(double x, double y, pechnikov::point_t p) : diagX(x), diagY(y), pos(p)
+
+namespace
 {
-  if (diagX <= 0.0 || diagY <= 0.0)
-  {
-    throw std::invalid_argument("Diamond: Invalid len diagonali");
-  }
+  const double HALF = 0.5;
 }
 
-double pechnikov::Diamond::getArea() const
+namespace pechnikov
 {
-  return 0.5 * diagX * diagY;
-}
-pechnikov::rectangle_t pechnikov::Diamond::getFrameRect() const
-{
-  double width = diagX;
-  double height = diagY;
-  return { width, height, pos };
-}
-void pechnikov::Diamond::move(const pechnikov::point_t& p)
-{
-  pos = p;
-}
-void pechnikov::Diamond::move(double dx, double dy)
-{
-  pos.x += dx;
-  pos.y += dy;
-}
-void pechnikov::Diamond::scale(double k)
-{
-  if (k <= 0.0)
+  Diamond::Diamond(double x, double y, point_t p) : diag_x_(x), diag_y_(y), pos_(p)
   {
-    throw std::invalid_argument("Invalid koef");
+    if (diag_x_ <= 0.0 || diag_y_ <= 0.0)
+    {
+      throw std::invalid_argument("Diamond: Invalid len diagonali");
+    }
   }
-  diagX *= k;
-  diagY *= k;
+
+  double Diamond::getArea() const
+  {
+    return HALF * diag_x_ * diag_y_;
+  }
+
+  rectangle_t Diamond::getFrameRect() const
+  {
+    const double width = diag_x_;
+    const double height = diag_y_;
+    return { width, height, pos_ };
+  }
+
+  void Diamond::move(const point_t& p)
+  {
+    pos_ = p;
+  }
+
+  void Diamond::move(double dx, double dy)
+  {
+    pos_.x += dx;
+    pos_.y += dy;
+  }
+
+  void Diamond::scale(double k)
+  {
+    if (k <= 0.0)
+    {
+      throw std::invalid_argument("Invalid koef");
+    }
+    diag_x_ *= k;
+    diag_y_ *= k;
+  }
 }

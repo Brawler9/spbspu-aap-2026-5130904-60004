@@ -7,10 +7,12 @@ namespace pechnikov
   {
     double x, y;
   };
+
   struct rectangle_t
   {
     double width, height;
     point_t pos;
   };
 }
+
 #endif

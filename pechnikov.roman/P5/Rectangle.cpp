@@ -1,36 +1,44 @@
 #include "Rectangle.hpp"
 #include <stdexcept>
 
-pechnikov::Rectangle::Rectangle(double w, double h, pechnikov::point_t p) : width{ w }, height{ h }, pos{ p }
+namespace pechnikov
 {
-  if (w <= 0.0 || h <= 0.0)
+  Rectangle::Rectangle(double w, double h, point_t p) : width_(w), height_(h), pos_(p)
   {
-    throw std::invalid_argument("Rectangle: sides must be positive");
+    if (w <= 0.0 || h <= 0.0)
+    {
+      throw std::invalid_argument("Rectangle: sides must be positive");
+    }
   }
-}
-double pechnikov::Rectangle::getArea() const
-{
-  return width * height;
-}
-pechnikov::rectangle_t pechnikov::Rectangle::getFrameRect() const
-{
-  return { width, height, pos };
-}
-void pechnikov::Rectangle::move(const pechnikov::point_t& p)
-{
-  pos = p;
-}
-void pechnikov::Rectangle::move(double dx, double dy)
-{
-  pos.x += dx;
-  pos.y += dy;
-}
-void pechnikov::Rectangle::scale(double k)
-{
-  if (k <= 0.0)
+
+  double Rectangle::getArea() const
   {
-    throw std::invalid_argument("Invalid koef");
+    return width_ * height_;
   }
-  width *= k;
-  height *= k;
+
+  rectangle_t Rectangle::getFrameRect() const
+  {
+    return { width_, height_, pos_ };
+  }
+
+  void Rectangle::move(const point_t& p)
+  {
+    pos_ = p;
+  }
+
+  void Rectangle::move(double dx, double dy)
+  {
+    pos_.x += dx;
+    pos_.y += dy;
+  }
+
+  void Rectangle::scale(double k)
+  {
+    if (k <= 0.0)
+    {
+      throw std::invalid_argument("Invalid koef");
+    }
+    width_ *= k;
+    height_ *= k;
+  }
 }
