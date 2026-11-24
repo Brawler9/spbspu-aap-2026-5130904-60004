@@ -23,7 +23,7 @@ namespace pechnikov
       SumArea += shapes[i]->getArea();
       rectangle_t frame = shapes[i]->getFrameRect();
       std::cout << "Frame: width " << frame.width
-      << ", height " << frame.height 
+      << ", height " << frame.height
       << ", pos(" << frame.pos.x << ", " << frame.pos.y << ")\n";
 
       double left = frame.pos.x - frame.width / 2.0;
