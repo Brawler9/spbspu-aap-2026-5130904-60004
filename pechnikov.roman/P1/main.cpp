@@ -14,7 +14,7 @@ namespace pechnikov
     virtual void next(int i) = 0;
   };
 
-  struct Count : public ISeqPropety
+  struct Count: public ISeqPropety
   {
   private:
     int lenght_, current_, max_lenght_;
